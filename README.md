@@ -7,7 +7,7 @@
 
 ### TODO
 
-- [ ] react-router
+- [x] react-router
 - [ ] styled-component 💅 (maybe)
 
 ... something else 🦄

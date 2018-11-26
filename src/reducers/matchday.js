@@ -1,6 +1,6 @@
 import { SET_MATCHDAY } from "../actions";
 
-const initialState = 1;
+const initialState = 0;
 
 const matchday = (state = initialState, action) => {
   switch (action.type) {

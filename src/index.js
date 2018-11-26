@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import createSagaMiddleware from "redux-saga";
+import { createBrowserHistory } from "history";
+import { routerMiddleware, ConnectedRouter } from "connected-react-router";
 import reducer from "./reducers";
 import saga from "./saga";
 import { composeWithDevTools } from "redux-devtools-extension";
@@ -15,17 +17,22 @@ import App from "./App";
 
 import * as serviceWorker from "./serviceWorker";
 
+const history = createBrowserHistory();
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
-  reducer,
-  composeWithDevTools(applyMiddleware(sagaMiddleware))
+  reducer(history),
+  composeWithDevTools(
+    applyMiddleware(routerMiddleware(history), sagaMiddleware)
+  )
 );
 
 sagaMiddleware.run(saga);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <ConnectedRouter history={history}>
+      <App />
+    </ConnectedRouter>
   </Provider>,
   document.getElementById("root")
 );

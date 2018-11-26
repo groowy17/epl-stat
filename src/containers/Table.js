@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { withRouter } from "react-router-dom";
 import { fetchTableRequest } from "../actions";
 
 class Table extends Component {
@@ -59,7 +60,7 @@ const mapStateToProps = state => ({
   error: state.table.error
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(Table);
+)(Table));

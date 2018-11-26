@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Match extends Component {
     render() {
         const match = this.props.match;
-        console.log(match);
+        // console.log(match);
         return (
             <div className="row">
                 <span className="five columns">{match.homeTeam.name}</span>

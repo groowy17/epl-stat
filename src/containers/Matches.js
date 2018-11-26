@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { withRouter } from "react-router-dom";
 import { fetchMatchesRequest } from "../actions";
 
 // Component
@@ -37,7 +38,7 @@ const mapStateToProps = state => ({
   error: state.matches.error
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(Matches);
+)(Matches));

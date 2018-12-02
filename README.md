@@ -8,6 +8,6 @@
 ### TODO
 
 - [x] react-router
-- [ ] styled-component 💅 (maybe)
+- [ ] ~~styled-component 💅 (maybe)~~
 
 ... something else 🦄

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { withRouter } from "react-router-dom";
 import { fetchTableRequest } from "../actions";
+import { teamName } from "../utils";
 
 class Table extends Component {
   componentDidMount() {
@@ -10,7 +11,7 @@ class Table extends Component {
   }
   render() {
     const { table, error } = this.props;
-    
+
     return (
       <table className="u-full-width">
         <thead>
@@ -33,7 +34,7 @@ class Table extends Component {
                   src={row.team.crestUrl}
                   alt={row.team.name}
                 />
-                {row.team.name}
+                {teamName(row.team.name)}
               </td>
               <td>{row.points}</td>
               <td>{row.won}</td>
@@ -60,7 +61,9 @@ const mapStateToProps = state => ({
   error: state.table.error
 });
 
-export default withRouter(connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Table));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Table)
+);

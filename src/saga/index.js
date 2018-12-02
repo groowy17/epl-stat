@@ -1,5 +1,4 @@
-import { takeEvery, select, all, call, put, fork } from "redux-saga/effects";
-import { delay } from "redux-saga";
+import { takeEvery, select, all, call, put } from "redux-saga/effects";
 import API from "../api";
 import {
   FETCH_TABLE_REQUEST,
@@ -35,8 +34,8 @@ export function* fetchTable() {
 
 export function* fetchMatches() {
   try {
-    // Для того чтобы успел выполнится экшн с днем матча
-    yield call(delay, 500);
+    // Set matchday
+    yield call(reqMatchday);
     const md = yield select(selectorMatchday);
     const url = `/competitions/PL/matches?matchday=${md}`;
     const response = yield call(API.get, url);
@@ -86,7 +85,7 @@ export function* reqTeamsInfo() {
 
 export default function* rootSaga() {
   yield all([
-    takeEvery(MATCHDAY_REQUEST, reqMatchday),
+    // takeEvery(MATCHDAY_REQUEST, reqMatchday),
     takeEvery(TEAMS_REQUEST, reqTeamsInfo),
     takeEvery(FETCH_TABLE_REQUEST, fetchTable),
     takeEvery(FETCH_MATCH_REQUEST, fetchMatches)

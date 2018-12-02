@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { matchdayRequest, teamsRequest } from "./actions";
+import { teamsRequest } from "./actions";
 // Styles
 import "skeleton-css/css/normalize.css";
 import "skeleton-css/css/skeleton.css";
@@ -14,20 +14,21 @@ import Matches from "./containers/Matches";
 import Navbar from "./components/Navbar";
 
 class App extends Component {
-  componentDidMount() {
-    this.props.matchdayRequest();
+  componentWillMount() {
     this.props.teamsRequest();
   }
 
   render() {
     return (
-      <div className="container">
-        <Navbar />
+      <>
+      <Navbar />
+      <div className="container app">
         <Switch>
           <Route exact path="/" component={Table} />
           <Route path="/matches" component={Matches} />
         </Switch>
       </div>
+      </>
     );
   }
 }
@@ -35,7 +36,6 @@ class App extends Component {
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      matchdayRequest,
       teamsRequest
     },
     dispatch

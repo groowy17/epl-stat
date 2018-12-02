@@ -1,0 +1,30 @@
+.nav {
+    position: fixed;
+    width: 100%;
+    border-bottom: 1px solid #e1e1e1;
+    background-color: #fff;
+    z-index: 1;
+}
+
+.nav-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.nav-link {
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    color: #3f3f3f;
+    font-weight: bold;
+}
+
+.nav-link:first-child {
+    padding-left: 0;
+}
+
+.nav-link:last-child {
+    padding-right: 0;
+}

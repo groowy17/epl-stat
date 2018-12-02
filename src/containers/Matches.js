@@ -12,13 +12,26 @@ class Matches extends Component {
     this.props.fetchMatchesRequest();
   }
 
+  filterTeamsCrest(info, id) {
+    const team = info.filter(team => team.id === id);
+
+    return team[0];
+  }
+
   render() {
-    const { matches, error } = this.props;
+    const { matches, error, matchday } = this.props;
+    const info = this.props.teamsInfo;
+
     return (
       <>
-        <h1>Matches</h1>
+        {matchday !== 0 && <h4>Matchday {matchday}</h4>}
         {matches.map((match, index) => (
-          <Match key={index} match={match} />
+          <Match
+            key={index}
+            match={match}
+            crestAway={this.filterTeamsCrest(info, match.awayTeam.id)}
+            crestHome={this.filterTeamsCrest(info, match.homeTeam.id)}
+          />
         ))}
       </>
     );
@@ -35,10 +48,14 @@ const mapDispatchToProps = dispatch =>
 
 const mapStateToProps = state => ({
   matches: state.matches.matches,
-  error: state.matches.error
+  error: state.matches.error,
+  teamsInfo: state.teamsInfo,
+  matchday: state.matchday
 });
 
-export default withRouter(connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Matches));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Matches)
+);

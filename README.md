@@ -3,7 +3,7 @@
 - react
 - redux
 - redux-saga
-- [Football API](https://www.football-data.org/)
+- [Football data API](https://www.football-data.org/)
 
 ### TODO
 

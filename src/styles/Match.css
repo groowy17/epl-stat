@@ -1,0 +1,32 @@
+.match {
+}
+
+.match-team {
+}
+
+.match-team__name {
+  font-weight: bold;
+}
+
+.match-team__name_home {
+  text-align: right;
+}
+
+.match-team__crest {
+  text-align: center;
+}
+
+.match-team__crest img {
+  height: 1.5em;
+}
+
+.match-score {
+  text-align: center;
+}
+
+.match-score__result {
+  background: #38003c;
+  color: #fff;
+  display: inline-block;
+  width: 6em;
+}

@@ -3,7 +3,6 @@ import API from "../api";
 import {
   FETCH_TABLE_REQUEST,
   FETCH_MATCH_REQUEST,
-  MATCHDAY_REQUEST,
   TEAMS_REQUEST
 } from "../actions";
 import {
@@ -85,7 +84,6 @@ export function* reqTeamsInfo() {
 
 export default function* rootSaga() {
   yield all([
-    // takeEvery(MATCHDAY_REQUEST, reqMatchday),
     takeEvery(TEAMS_REQUEST, reqTeamsInfo),
     takeEvery(FETCH_TABLE_REQUEST, fetchTable),
     takeEvery(FETCH_MATCH_REQUEST, fetchMatches)

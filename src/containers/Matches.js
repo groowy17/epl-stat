@@ -25,14 +25,16 @@ class Matches extends Component {
     return (
       <>
         {matchday !== 0 && <h4>Matchday {matchday}</h4>}
-        {matches.map((match, index) => (
-          <Match
-            key={index}
-            match={match}
-            crestAway={this.filterTeamsCrest(info, match.awayTeam.id)}
-            crestHome={this.filterTeamsCrest(info, match.homeTeam.id)}
-          />
-        ))}
+        <div className="matches">
+          {matches.map((match, index) => (
+            <Match
+              key={index}
+              match={match}
+              crestAway={this.filterTeamsCrest(info, match.awayTeam.id)}
+              crestHome={this.filterTeamsCrest(info, match.homeTeam.id)}
+            />
+          ))}
+        </div>
       </>
     );
   }

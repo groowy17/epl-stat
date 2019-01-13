@@ -1,11 +1,6 @@
-.match {
-}
-
-.match-team {
-}
-
-.match-team__name {
-  font-weight: bold;
+.matches {
+  display: grid;
+  grid-template-columns: 3fr 1fr 3fr;
 }
 
 .match-team__name_home {

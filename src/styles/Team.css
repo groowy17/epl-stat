@@ -1,0 +1,29 @@
+.team {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.team-name {
+  flex-basis: 100%;
+  padding-left: 0.3em;
+}
+
+.team-name_home {
+  order: 1;
+  text-align: right;
+  padding-left: 0;
+  padding-right: 0.3em;
+}
+
+.team-crest {
+  width: 2em;
+  text-align: center;
+}
+
+.team-crest_home {
+  order: 2;
+}
+
+.team-crest__img {
+  height: 1.5em;
+}

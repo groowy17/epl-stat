@@ -26,4 +26,5 @@
 
 .team-crest__img {
   height: 1.5em;
+  vertical-align: middle;
 }

@@ -4,6 +4,7 @@ import { bindActionCreators } from "redux";
 import { withRouter } from "react-router-dom";
 import { fetchTableRequest } from "../actions";
 import { teamName } from "../utils";
+import Team from "../components/Team";
 
 class Table extends Component {
   componentDidMount() {
@@ -29,12 +30,10 @@ class Table extends Component {
             <tr key={index}>
               <td>{row.position}</td>
               <td>
-                <img
-                  className="table-logo"
-                  src={row.team.crestUrl}
-                  alt={row.team.name}
+                <Team
+                  name={row.team.name}
+                  crestUrl={row.team.crestUrl}
                 />
-                {teamName(row.team.name)}
               </td>
               <td>{row.points}</td>
               <td>{row.won}</td>

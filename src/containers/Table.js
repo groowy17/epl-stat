@@ -31,6 +31,7 @@ class Table extends Component {
               <td>{row.position}</td>
               <td>
                 <Team
+                  id={row.team.id}
                   name={row.team.name}
                   crestUrl={row.team.crestUrl}
                 />

@@ -11,6 +11,7 @@ import "./App.css";
 // Components
 import Table from "./containers/Table";
 import Matches from "./containers/Matches";
+import Team from "./containers/Team";
 import Navbar from "./components/Navbar";
 
 class App extends Component {
@@ -21,13 +22,14 @@ class App extends Component {
   render() {
     return (
       <>
-      <Navbar />
-      <div className="container app">
-        <Switch>
-          <Route exact path="/" component={Table} />
-          <Route path="/matches" component={Matches} />
-        </Switch>
-      </div>
+        <Navbar />
+        <div className="container app">
+          <Switch>
+            <Route exact path="/" component={Table} />
+            <Route path="/matches" component={Matches} />
+            <Route path="/team/:id" component={Team} />
+          </Switch>
+        </div>
       </>
     );
   }

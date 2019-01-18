@@ -3,7 +3,8 @@ import API from "../api";
 import {
   FETCH_TABLE_REQUEST,
   FETCH_MATCH_REQUEST,
-  TEAMS_REQUEST
+  TEAMS_REQUEST,
+  FETCH_TEAM_REQUEST
 } from "../actions";
 import {
   fetchTableSuccess,
@@ -11,7 +12,9 @@ import {
   fetchMatchesError,
   setMatchday,
   fetchMatchesSuccess,
-  fetchTeamsInfo
+  fetchTeamsInfo,
+  fetchTeamSuccess,
+  fetchTeamError
 } from "../actions";
 
 const selectorMatchday = state => state.matchday;
@@ -82,10 +85,25 @@ export function* reqTeamsInfo() {
   }
 }
 
+export function* fetchTeam(action) {
+  const url = `/teams/${action.id}`;
+
+  try {
+    const response = yield call(API.get, url);
+
+    yield put(fetchTeamSuccess(response.data));
+  } catch (error) {
+    const message = error.message;
+
+    yield put(fetchTeamError(message));
+  }
+}
+
 export default function* rootSaga() {
   yield all([
     takeEvery(TEAMS_REQUEST, reqTeamsInfo),
     takeEvery(FETCH_TABLE_REQUEST, fetchTable),
-    takeEvery(FETCH_MATCH_REQUEST, fetchMatches)
+    takeEvery(FETCH_MATCH_REQUEST, fetchMatches),
+    takeEvery(FETCH_TEAM_REQUEST, fetchTeam)
   ]);
 }

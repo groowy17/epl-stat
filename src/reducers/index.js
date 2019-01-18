@@ -4,6 +4,7 @@ import table from "./table";
 import matches from "./matches";
 import matchday from "./matchday";
 import teamsInfo from "./teamsInfo";
+import team from "./team";
 
 export default history =>
   combineReducers({
@@ -11,5 +12,6 @@ export default history =>
     table,
     matches,
     matchday,
-    teamsInfo
+    teamsInfo,
+    team
   });

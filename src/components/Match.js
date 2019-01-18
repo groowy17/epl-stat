@@ -13,6 +13,7 @@ class Match extends Component {
     return (
       <>
         <Team
+          id={match.homeTeam.id}
           name={teamName(match.homeTeam.name)}
           crestUrl={crestHomeUrl}
           teamHome={true}
@@ -22,7 +23,8 @@ class Match extends Component {
             {match.score.fullTime.homeTeam} - {match.score.fullTime.awayTeam}
           </span>
         </div>
-        <Team 
+        <Team
+          id={match.awayTeam.id}
           name={teamName(match.awayTeam.name)}
           crestUrl={crestAwayUrl}
         />

@@ -17,7 +17,9 @@
 
 .team-crest {
   width: 2em;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .team-crest_home {
@@ -26,5 +28,4 @@
 
 .team-crest__img {
   height: 1.5em;
-  vertical-align: middle;
 }

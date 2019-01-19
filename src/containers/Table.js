@@ -32,7 +32,7 @@ class Table extends Component {
               <td>
                 <Team
                   id={row.team.id}
-                  name={row.team.name}
+                  name={teamName(row.team.name)}
                   crestUrl={row.team.crestUrl}
                 />
               </td>

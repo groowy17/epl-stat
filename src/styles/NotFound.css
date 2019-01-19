@@ -1,0 +1,8 @@
+.not-found {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 45px);
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+}

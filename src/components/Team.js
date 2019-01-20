@@ -11,8 +11,8 @@ class Team extends Component {
     const id = this.props.id;
 
     return (
-      <Link to={`/team/${id}`}>
-        <div className="team">
+      <Link to={`/team/${id}`} className="team-link">
+        <div className="team-wrap">
           <div
             className={classNames("team-crest", {
               "team-crest_home": teamHome

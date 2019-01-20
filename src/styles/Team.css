@@ -1,4 +1,9 @@
-.team {
+.team-link {
+  text-decoration: none;
+  color: #222;
+}
+
+.team-wrap {
   display: flex;
   flex-wrap: nowrap;
 }

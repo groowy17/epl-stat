@@ -1,0 +1,24 @@
+.teamBox {
+  display: grid;
+  grid-template-areas:
+    "crest info"
+    "squad squad";
+  grid-template-columns: 20% 1fr;
+  grid-gap: 10px;
+}
+
+.teamBox-crest {
+  grid-area: crest;
+}
+
+.teamBox-crest__img {
+    width: 100%;
+}
+
+.teamBox-info {
+  grid-area: info;
+}
+
+.teamBox-squad {
+  grid-area: squad;
+}

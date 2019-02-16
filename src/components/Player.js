@@ -9,7 +9,7 @@ class Player extends Component {
             <div className="player">
                 <div className="player-number">{shirtNumber}</div>
                 <div className="player-name">{playerName}</div>
-                {/* <div className="player-position">{position}</div> */}
+                <div className="player-position">{position}</div>
             </div>
         );
     }

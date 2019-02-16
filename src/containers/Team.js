@@ -6,6 +6,8 @@ import { fetchTeamRequest } from "../actions";
 import { findCoachInSquad } from "../utils";
 import "../styles/TeamBox.css";
 
+import Player from "../components/Player";
+
 class Team extends Component {
   componentDidMount() {
     this.props.fetchTeamRequest(this.props.match.params.id);
@@ -17,15 +19,24 @@ class Team extends Component {
     let playersList = [];
 
     if (team.squad) {
-      let players = team.squad.filter(man=>{
-        return man.role === 'PLAYER';
+      let players = team.squad.filter(man => {
+        return man.role === "PLAYER";
       });
 
       players.map((player, index) => {
-        playersList.push(<div key={index}>{player.name}</div>);
+        playersList.push(
+          <Player
+            key={index}
+            playerName={player.name}
+            position={player.position}
+            dateOfBirth={player.dateOfBirth}
+            nationality={player.nationality}
+            shirtNumber={player.shirtNumber}
+          />
+        );
       });
     }
-    
+
     // TODO: Сделать компонент игрока
     return (
       <div className="teamBox">

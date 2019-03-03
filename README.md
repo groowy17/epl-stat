@@ -3,11 +3,5 @@
 - react
 - redux
 - redux-saga
+- react-router
 - [Football data API](https://www.football-data.org/)
-
-### TODO
-
-- [x] react-router
-- [ ] ~~styled-component 💅 (maybe)~~
-
-... something else 🦄
